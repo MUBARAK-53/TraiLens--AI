@@ -1,4 +1,9 @@
-venv/
-.env
+﻿venv/
+.venv/
 __pycache__/
-*.pyc
+*.py[cod]
+.env
+.env.*
+!.env.example
+.pytest_cache/
+.idea/
