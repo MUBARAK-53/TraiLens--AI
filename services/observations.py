@@ -35,15 +35,8 @@ async def get_observations(db: AsyncSession):
     result = await db.execute(
         select(Observation).order_by(Observation.created_at.desc())
     )
-    existing_observations = result.scalars().all()
-
-    if not existing_observations:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="No Observations Found!",
-        )
-
-    return existing_observations
+    # Returns an empty list [] gracefully instead of breaking the Android app with a 404 error
+    return result.scalars().all()
 
 
 async def get_observation_by_id(db: AsyncSession, observation_id: int):

@@ -6,6 +6,7 @@ from routers.user import router as user_router
 from routers.observations import router as observation_router
 from routers.sprint_session import router as sprint_session_router
 from routers.sprint_mission import router as sprint_mission_router
+from routers.ai import router as ai_router
 
 
 @asynccontextmanager
@@ -32,6 +33,7 @@ app.include_router(user_router)
 app.include_router(observation_router)
 app.include_router(sprint_session_router)
 app.include_router(sprint_mission_router)
+app.include_router(ai_router)
 
 
 @app.get("/", tags=["Health Check"])
